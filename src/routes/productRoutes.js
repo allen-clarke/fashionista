@@ -20,7 +20,7 @@ productRouter.post("/", uploadProductImg.single("image"), async (req, res) => {
 
     const newProduct = {
       ...data,
-      imageUrl: `/products/${req.file.filename}`,
+      imageUrl: req.file.path,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
     };
 
